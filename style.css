@@ -1,34 +1,27 @@
 div {
+	border: 1px solid black;
 	min-width: 100px;
 	text-align: center;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
-.calendar_row {
-	display: flex;
-	flex-direction: column;
-}
-
-.calendar_columns {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: stretch;
-	flex: 1;
+.calendar {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto auto;
+	grid-template-rows: auto auto auto auto auto auto auto auto;
 }
 
 .calendar_year_label {
+	grid-column: 1 / 8;
 	background-color: green;
-	flex: 1 1;
 }
 
 .calendar_weekday_label {
 	background-color: green;
-	flex: 1 1;
 }
 
 .calendar_day {
 	background-color: lightgreen;
 	text-align: left;
-
-	flex: 1 1;
 }
