@@ -8,11 +8,12 @@
 </head>
 
 <body>
-	<h1>This is a Heading</h1>
-	<p>This is a paragraph.</p>
-
 	<div class="calendar" id="calendarBody">
-		<div class="calendar_year_label">Year</div>
+		<div class="calendar_year_label" id="calendar_year_label">Year</div>
+
+		<button class="calendar_month_button" id="calendar_left" onclick="decreaseMonth()"> &lt; </button>
+		<div class="calendar_month_label" id="calendar_month_label">Month</div>
+		<button class="calendar_month_button" id="calendar_right" onclick="increaseMonth()"> &gt; </button>
 
 		<div class="calendar_weekday_label">Sunday</div>
 		<div class="calendar_weekday_label">Monday</div>
@@ -70,7 +71,6 @@
 		<div class="calendar_day" id="Friday5">Y</div>
 		<div class="calendar_day" id="Saturday5">Y</div>
 	</div>
-
 
 	<script src="calendarLoad.js"></script>
 </body>

@@ -6,22 +6,51 @@ div {
 	margin: 0px 0px 0px 0px;
 }
 
+button {
+	border: 1px solid black;
+	min-width: 100px;
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	background-color: darkGreen;
+}
+
 .calendar {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto auto auto;
 	grid-template-rows: auto auto auto auto auto auto auto auto;
+
+	margin: auto;
+	width: 75%;
+	color: white;
+	border: 3px solid darkGreen;
 }
 
 .calendar_year_label {
 	grid-column: 1 / 8;
-	background-color: green;
+	color: lightgreen;
+	background-color: darkGreen;
+}
+
+.calendar_month_label {
+	grid-column: 2 / 7;
+	color: lightgreen;
+	background-color: darkGreen;
 }
 
 .calendar_weekday_label {
-	background-color: green;
+	color: lightgreen;
+	background-color: darkGreen;
 }
 
 .calendar_day {
+	color: black;
 	background-color: lightgreen;
 	text-align: left;
+}
+
+.calendar_day:after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
 }

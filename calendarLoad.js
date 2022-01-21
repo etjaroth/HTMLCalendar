@@ -25,13 +25,15 @@ function loadCalendar() {
 		let label = "";
 		if ((1 <= real_i) && (real_i <= lastDayInMonth.getDate())) {
 			label = String(real_i);
+		} else {
+			document.getElementById(getID(x, y)).style.background = "green";
 		}
 
 		document.getElementById(getID(x, y)).innerHTML = label;
 	}
 }
 
-function highlightDate(date) {
+function highlightDate(date, highlight) {
 	if (date.getMonth() != calendar_date.getMonth()) {
 		return;
 	}
@@ -39,8 +41,35 @@ function highlightDate(date) {
 	const coord = getDayCoord(date.getDate());
 	const x = coord[0];
 	const y = coord[1];
-	document.getElementById(getID(x, y)).style.backgroundColor = "yellow";
+	if (highlight) {
+		document.getElementById(getID(x, y)).style.backgroundColor = "yellow";
+	} else {
+		document.getElementById(getID(x, y)).style.backgroundColor = "";
+	}
 }
 
-loadCalendar();
-highlightDate(current_date);
+function labelCalendar() {
+	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	document.getElementById("calendar_month_label").innerHTML = months[calendar_date.getMonth()];
+	document.getElementById("calendar_year_label").innerHTML = String(calendar_date.getFullYear());
+}
+
+function refreshCalendar() {
+	loadCalendar();
+	highlightDate(current_date, true);
+	labelCalendar();
+}
+
+function increaseMonth() {
+	highlightDate(current_date, false);
+	calendar_date.setMonth(calendar_date.getMonth() + 1);
+	refreshCalendar();
+}
+
+function decreaseMonth() {
+	highlightDate(current_date, false);
+	calendar_date.setMonth(calendar_date.getMonth() - 1);
+	refreshCalendar();
+}
+
+refreshCalendar();
